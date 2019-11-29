@@ -1,7 +1,7 @@
 # Monitor Demo
 Monitor Demo is a web app to monitor a specific local folder. 
 
-The project leyout includes 2 node servers
+The project layout includes 2 node servers
 * Backend monitor
 * Client UI
 
@@ -12,7 +12,8 @@ The project leyout includes 2 node servers
 > nodemon can be installed globaly or as dev-dependency (default)
 
 ## Runnig the project
-clont this repo
+clone this repo
+
 #### Start backend
 From root folder
 ```
@@ -26,4 +27,3 @@ In root folder
 npm install
 npm start
 ```
-
