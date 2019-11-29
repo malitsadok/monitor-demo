@@ -49,16 +49,28 @@ app.route('/').get((req, res) => {
     res.send('loginPage');
 })
 
-app.route('/register').post(checkNotAuthenticated , (req, res) => {
-    
-    users.push({
-        id: Date.now().toString, 
-        username: req.body.username, 
-        password: req.body.password
-    })
-    console.log(users)
+app.route('/register').post(checkNotAuthenticated, (req, res) => {
+    if (validateRegister(req.body.username)) {
+        console.log("sucsses");
+        users.push({
+            id: Date.now().toString,
+            username: req.body.username,
+            password: req.body.password
+        })
+        res.status(200);
+    } else {
+        res.status(400);
+        res.send('user is already exsits');       
+    }
 });
 
+
+function validateRegister(username) {
+    if (find(username)) {
+        return false; 
+    }
+    return true; 
+}
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {

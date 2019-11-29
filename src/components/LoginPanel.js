@@ -59,8 +59,8 @@ export default class LoginPanel extends Component {
             }
             axios.post('http://localhost:5000/login', login)
                 .then(res => {
-                    if (res.request.responseText === "loginPage") { this.props.history.push("/") } 
-                    if (res.request.responseText === "monitorPage") {this.props.history.push("/monitor") }
+                    if (res.request.responseText === "loginPage") { window.location = "/"  } 
+                    if (res.request.responseText === "monitorPage") { window.location = "/monitor"  }
                     } )
         }
     }
@@ -102,7 +102,7 @@ export default class LoginPanel extends Component {
                             onClick={this.onSubmit}>
                             Login
                      </button>  
-                    <a href="/registerPage">Register</a>
+                    <a href="/register">Register</a>
                     </div>
                    
                     </div>

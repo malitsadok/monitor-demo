@@ -21,7 +21,7 @@ class App extends Component {
                     <div className="root-containe">
                         <Route path="/monitor" component={MonitorPanel} />
                         <Route exact path="/" component={LoginPanel} />
-                        <Route path="/registerPage" component={RegisterPanel} />
+                        <Route path="/register" component={RegisterPanel} />
                     </div>
                 </Router>
             </div>

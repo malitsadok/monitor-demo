@@ -15,7 +15,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: darkblue;
+    color: midnightblue;
+    font-weight: bold;
+}
+
+.App-header-register {
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 17px;
+    font-family: Ozxgen, sans-serif;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    color: palevioletred;
 }
 
 .App-link {

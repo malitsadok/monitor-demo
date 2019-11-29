@@ -46,7 +46,7 @@ export default class MonitorPanel extends Component {
     handleLogOut(e) {
         e.preventDefault();   
         axios.post('http://localhost:5000/monitor/logout')
-            .then(this.props.history.push("/"))
+            .then(window.location = "/" )
     }
 
 

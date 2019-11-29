@@ -62,7 +62,15 @@ export default class RegisterPanel extends Component {
             }
 
             axios.post('http://localhost:5000/register', register)
-                .then(this.props.history.push("/"));
+                .then(
+                    window.location = "/"  )
+                .catch(error => {
+                    if (error.response) {
+                        console.log("we are in catch")
+                        let errors = {};
+                        errors["userNameAvailable"] =error.response.data;
+                        this.setState({ errors: errors })
+                    }});
         }
     }
 
@@ -70,7 +78,7 @@ export default class RegisterPanel extends Component {
         return (
             <div className="box-container">
                 <div className="inner-container">
-                    <div className="App-header">
+                    <div className="App-header-register">
                         Register
                     </div>
 
@@ -87,7 +95,7 @@ export default class RegisterPanel extends Component {
                                 placeholder="Username" />
                         </div>
                         <div className="errorMsg">{this.state.errors.username}</div>
-
+                        <div className="errorMsg">{this.state.errors.userNameAvailable}</div>
                         <div className="input-group">
                             <label htmlFor="password">Password</label>
                             <input type="password"
@@ -101,7 +109,7 @@ export default class RegisterPanel extends Component {
                             className="my-btn"
                             onClick={this.onSubmit}>Register</button>
                     </div>
-                    <a href="/loginPage">Login</a>
+                    <a href="/">Login</a>
                 </div>
             </div>
         );
