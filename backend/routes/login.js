@@ -4,8 +4,8 @@ const app = express()
 const passport = require('passport')
 const flash = require('express-flash')
 const session = require('express-session')
+ require('dotenv').config()
 
-const path = require('path')
 
 const users = [];  
 
@@ -26,7 +26,7 @@ initializePassport(
 app.use(express.urlencoded({ extended: false }))
 app.use(flash())
 app.use(session({
-    secret: 'secret',
+    secret: process.env.NODE_SECRET,
     resave: false,
     saveUninitialized: false
 }))
@@ -51,13 +51,14 @@ app.route('/').get((req, res) => {
 
 app.route('/register').post(checkNotAuthenticated, (req, res) => {
     if (validateRegister(req.body.username)) {
-        console.log("sucsses");
+
         users.push({
             id: Date.now().toString,
             username: req.body.username,
             password: req.body.password
         })
         res.status(200);
+        res.send('user saved'); 
     } else {
         res.status(400);
         res.send('user is already exsits');       

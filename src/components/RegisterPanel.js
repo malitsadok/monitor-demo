@@ -54,22 +54,23 @@ export default class RegisterPanel extends Component {
 
 
     onSubmit(e) {
-        if (this.validate()) {
-            console.log("onSubmit")
+        if (this.validate()) {       
             const register = {
                 username: this.state.username,
                 password: this.state.password
             }
 
             axios.post('http://localhost:5000/register', register)
-                .then(
-                    window.location = "/"  )
-                .catch(error => {
-                    if (error.response) {
-                        console.log("we are in catch")
+                .then(res => {
+                    //if (res.status === 200) {
+                    window.location = "/"
+                })
+                .catch(res => {
+                    if (res.response) {
                         let errors = {};
-                        errors["userNameAvailable"] =error.response.data;
-                        this.setState({ errors: errors })
+                        errors["userNameAvailable"] =res.response.data;
+                        this.setState({ errors: errors }
+                          )
                     }});
         }
     }
