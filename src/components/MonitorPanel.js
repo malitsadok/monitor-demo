@@ -75,7 +75,7 @@ export default class MonitorPanel extends Component {
 <div className="box-container"> 
      <div className="inner-container">
         <div className="App-header">
-             Sapiens - spy 
+             Monitor 
         </div>
         <div className="box">
                 <label>Folder Name:</label>
