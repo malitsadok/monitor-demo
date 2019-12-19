@@ -35,7 +35,7 @@ app.route('/start').post((req, res) => {
 });
 
 function getFileName(path) {
-    var res = path.split("\\");
+    let res = path.split("\\");
     return res[res.length - 1]
 }
 
